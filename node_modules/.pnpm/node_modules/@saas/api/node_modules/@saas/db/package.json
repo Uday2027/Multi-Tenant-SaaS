@@ -1,0 +1,21 @@
+{
+  "name": "@saas/db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "push": "drizzle-kit push",
+    "studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.0",
+    "postgres": "^3.4.4"
+  },
+  "devDependencies": {
+    "@saas/tsconfig": "workspace:*",
+    "drizzle-kit": "^0.20.14",
+    "typescript": "^5.4.3"
+  }
+}
