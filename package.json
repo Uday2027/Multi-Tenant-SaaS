@@ -1,0 +1,15 @@
+{
+  "name": "multi-tenant-saas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-Tenant SaaS Application",
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "db:migrate": "pnpm --filter db run migrate",
+    "db:push": "pnpm --filter db run push"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
