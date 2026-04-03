@@ -31,6 +31,9 @@ importers:
       bcryptjs:
         specifier: ^2.4.3
         version: 2.4.3
+      drizzle-orm:
+        specifier: ^0.30.0
+        version: 0.30.10(@types/react@18.3.28)(postgres@3.4.8)(react@18.3.1)
       fastify:
         specifier: ^4.26.2
         version: 4.29.1
@@ -120,6 +123,15 @@ importers:
         version: 5.9.3
 
   packages/tsconfig: {}
+
+  packages/types:
+    devDependencies:
+      '@saas/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: ^5.4.3
+        version: 5.9.3
 
 packages:
 

@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { AppError } from '../shared/custom-error';
+import { AppError } from '../shared/custom-error.js';
 
 declare module '@fastify/jwt' {
   interface FastifyJWT {
@@ -11,11 +11,12 @@ declare module '@fastify/jwt' {
 export async function authMiddleware(request: FastifyRequest, reply: FastifyReply) {
   try {
     await request.jwtVerify();
-    // After verify, request.user contains the decoded token
-    if (request.tenantId && request.user.tenantId !== request.tenantId) {
-       throw new AppError(403, 'Tenant mismatch in token');
+    // Strict assertion: The request must have been resolved to a tenant matching the JWT
+    if (!request.tenantId || request.user.tenantId !== request.tenantId) {
+       throw new AppError(403, 'Cross-tenant request forbidden');
     }
-  } catch (err) {
+  } catch (err: any) {
+    if (err instanceof AppError) throw err;
     throw new AppError(401, 'Unauthorized');
   }
 }

@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { AppError } from '../shared/custom-error';
-import { db } from '../db'; // Need to create a db instance export
+import { AppError } from '../shared/custom-error.js';
+import { db } from '../db.js';
 import { tenants } from '@saas/db';
 import { eq } from 'drizzle-orm';
 

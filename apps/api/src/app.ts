@@ -4,8 +4,9 @@ import cookie from '@fastify/cookie';
 import jwt from '@fastify/jwt';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
-import { errorMiddleware } from './mw/error.middleware';
-import { authRoutes } from './modules/auth/auth.route';
+import { errorMiddleware } from './mw/error.middleware.js';
+import { authRoutes } from './modules/auth/auth.route.js';
+import { userRoutes } from './modules/user/user.route.js';
 
 export async function buildApp() {
   const app = fastify({
@@ -47,6 +48,7 @@ export async function buildApp() {
   app.register(async (api) => {
     // Prefix all api routes with /api/v1
     api.register(authRoutes, { prefix: '/auth' });
+    api.register(userRoutes, { prefix: '/users' });
   }, { prefix: '/api/v1' });
 
   return app;

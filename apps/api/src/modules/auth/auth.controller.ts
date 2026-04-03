@@ -1,7 +1,7 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { loginSchema, registerSchema } from './auth.schema';
-import { loginUser, registerTenant } from './auth.service';
-import { AppError } from '../../shared/custom-error';
+import { loginSchema, registerSchema } from './auth.schema.js';
+import { loginUser, registerTenant } from './auth.service.js';
+import { AppError } from '../../shared/custom-error.js';
 
 export async function loginHandler(request: FastifyRequest, reply: FastifyReply) {
   const result = loginSchema.safeParse(request.body);

@@ -1,4 +1,4 @@
-import { buildApp } from './app';
+import { buildApp } from './app.js';
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 4000;
 

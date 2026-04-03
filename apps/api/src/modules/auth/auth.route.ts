@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify';
-import { loginHandler, registerHandler, meHandler } from './auth.controller';
-import { tenantMiddleware } from '../../mw/tenant.middleware';
-import { authMiddleware } from '../../mw/auth.middleware';
+import { loginHandler, registerHandler, meHandler } from './auth.controller.js';
+import { tenantMiddleware } from '../../mw/tenant.middleware.js';
+import { authMiddleware } from '../../mw/auth.middleware.js';
 
 export async function authRoutes(app: FastifyInstance) {
   // Routes without auth logic but WITH tenant resolution (e.g. login)

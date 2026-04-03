@@ -1,9 +1,9 @@
-import bcrypt from 'bcryptjs';
-import { db } from '../../db';
+import * as bcrypt from 'bcryptjs';
+import { db } from '../../db.js';
 import { users, tenants } from '@saas/db';
 import { eq } from 'drizzle-orm';
-import { AppError } from '../../shared/custom-error';
-import { LoginBody, RegisterBody } from './auth.schema';
+import { AppError } from '../../shared/custom-error.js';
+import { LoginBody, RegisterBody } from './auth.schema.js';
 
 export async function loginUser(body: LoginBody, tenantId: string) {
   // Query within the specific tenant's context is implicitly 

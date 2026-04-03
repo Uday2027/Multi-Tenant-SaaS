@@ -2,6 +2,7 @@
   "name": "@saas/api",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -16,6 +17,7 @@
     "@fastify/helmet": "^11.1.1",
     "@fastify/rate-limit": "^9.1.0",
     "fastify": "^4.26.2",
+    "drizzle-orm": "^0.30.0",
     "bcryptjs": "^2.4.3",
     "zod": "^3.22.4"
   },

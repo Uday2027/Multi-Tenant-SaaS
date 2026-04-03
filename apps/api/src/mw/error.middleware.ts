@@ -1,5 +1,5 @@
 import { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
-import { AppError } from '../shared/custom-error';
+import { AppError } from '../shared/custom-error.js';
 
 export function errorMiddleware(
   error: FastifyError | AppError | Error,
