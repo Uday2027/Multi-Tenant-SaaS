@@ -13,9 +13,9 @@ export async function authMiddleware(request: FastifyRequest, reply: FastifyRepl
     await request.jwtVerify();
     // Strict assertion: The request must have been resolved to a tenant matching the JWT
     if (!request.tenantId || request.user.tenantId !== request.tenantId) {
-       throw new AppError(403, 'Cross-tenant request forbidden');
+      throw new AppError(403, 'Cross-tenant request forbidden');
     }
-  } catch (err: any) {
+  } catch (err: unknown) {
     if (err instanceof AppError) throw err;
     throw new AppError(401, 'Unauthorized');
   }

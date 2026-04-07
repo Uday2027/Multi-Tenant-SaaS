@@ -1,13 +1,11 @@
 import { sql } from 'drizzle-orm';
 import { db } from '../db.js';
-import { ExtractTablesWithRelations } from 'drizzle-orm';
-import { PgTransaction } from 'drizzle-orm/pg-core';
 
-type Tx = PgTransaction<any, any, any>;
+type DbTx = Parameters<Parameters<typeof db.transaction>[0]>[0];
 
 export async function withTenant<T>(
   tenantId: string,
-  callback: (tx: Tx) => Promise<T>
+  callback: (tx: DbTx) => Promise<T>
 ): Promise<T> {
   if (!tenantId) {
     throw new Error('FATAL: withTenant called without a tenantId. Aborting to prevent silent RLS failure.');
